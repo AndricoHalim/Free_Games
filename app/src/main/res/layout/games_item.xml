@@ -8,37 +8,39 @@
     android:layout_marginStart="16dp"
     android:layout_marginTop="4dp"
     android:layout_marginEnd="16dp"
-    android:layout_marginBottom="8dp"
+    android:layout_marginBottom="4dp"
     card_view:cardCornerRadius="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:padding="4dp">
 
         <ImageView
             android:id="@+id/ivTips"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
             android:contentDescription="Games Image"
-            android:scaleType="centerCrop"
-            card_view:layout_constraintEnd_toEndOf="parent"
+            android:scaleType="fitCenter"
+            card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/avatars" />
 
-
         <TextView
             android:id="@+id/tvYourActivity"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Games Title"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/ivTips" />
-
+            android:maxLines="4"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toEndOf="@+id/ivTips"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

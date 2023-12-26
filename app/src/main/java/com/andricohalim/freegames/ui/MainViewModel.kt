@@ -1,4 +1,4 @@
-package com.andricohalim.freegames
+package com.andricohalim.freegames.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,18 +12,18 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(private val userRepository: GamesRepository) : ViewModel() {
 
-    private val _listStory = MutableLiveData<Result<List<GamesResponse>>>()
-    val listStory: LiveData<Result<List<GamesResponse>>> = _listStory
+    private val _listGames = MutableLiveData<Result<List<GamesResponse>>>()
+    val listGames: LiveData<Result<List<GamesResponse>>> = _listGames
 
     init {
-        getListStory()
+        getGamesList()
     }
 
-    fun getListStory() {
+    fun getGamesList() {
         viewModelScope.launch {
             val response = userRepository.getGames()
             response.asFlow().collect {
-                _listStory.value = it
+                _listGames.value = it
             }
         }
     }

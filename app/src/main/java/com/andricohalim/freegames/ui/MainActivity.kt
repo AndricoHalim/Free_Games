@@ -1,10 +1,8 @@
-package com.andricohalim.freegames
+package com.andricohalim.freegames.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.andricohalim.freegames.adapter.GamesAdapter
 import com.andricohalim.freegames.databinding.ActivityMainBinding
@@ -28,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this)
         binding.rvTips.layoutManager = layoutManager
 
-        mainViewModel.listStory.observe(this) { result ->
+        mainViewModel.listGames.observe(this) { result ->
             when (result) {
                 is Result.Loading -> {
 //                    showLoading(true)
@@ -46,18 +44,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
-
-
-    override fun onResume() {
-        super.onResume()
-        // Tarik kembali data saat activity aktif kembali
-        mainViewModel.getListStory()
-    }
-
-
-
 
     private fun setupAction(storyList: List<GamesResponse>) {
         binding.apply {

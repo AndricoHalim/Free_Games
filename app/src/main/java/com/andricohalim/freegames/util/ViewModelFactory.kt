@@ -3,7 +3,7 @@ package com.andricohalim.freegames.util
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.andricohalim.freegames.MainViewModel
+import com.andricohalim.freegames.ui.MainViewModel
 import com.andricohalim.freegames.injection.Injection
 import com.andricohalim.freegames.repository.GamesRepository
 

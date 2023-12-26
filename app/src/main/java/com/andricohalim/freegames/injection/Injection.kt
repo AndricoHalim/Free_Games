@@ -9,5 +9,4 @@ object Injection {
         val apiService = ApiConfig.getApiService()
         return GamesRepository(apiService)
     }
-
 }

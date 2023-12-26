@@ -23,11 +23,11 @@ fun formatDate(endDateStr: String): String {
     val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
     val outputFormat = SimpleDateFormat("dd MMMM yyyy HH:mm:ss", Locale("id", "ID"))
 
-    try {
+    return try {
         val endDate: Date = inputFormat.parse(endDateStr) ?: Date()
-        return outputFormat.format(endDate)
+        outputFormat.format(endDate)
     } catch (e: ParseException) {
         e.printStackTrace()
-        return "Invalid Date Format"
+        "Invalid Date Format"
     }
 }

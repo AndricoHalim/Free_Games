@@ -1,6 +1,5 @@
 package com.andricohalim.freegames.repository
 
-import android.net.http.HttpException
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
@@ -14,7 +13,7 @@ class GamesRepository(
 
     fun getGames():  LiveData<Result<List<GamesResponse>>> =
         liveData {
-            emit(com.andricohalim.freegames.util.Result.Loading)
+            emit(Result.Loading)
             try {
                 val storyResponse = apiService.getStories()
                 Log.d("GamesRepository", "Number of items: ${storyResponse.size}")

@@ -3,18 +3,16 @@ package com.andricohalim.freegames.ui.detail
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.IntentCompat
 import com.andricohalim.freegames.R
 import com.andricohalim.freegames.databinding.ActivityDetailBinding
-import com.andricohalim.freegames.databinding.ActivityMainBinding
 import com.andricohalim.freegames.response.GamesResponse
 import com.andricohalim.freegames.util.formatDate
 import com.andricohalim.freegames.util.loadImage
@@ -27,7 +25,7 @@ class DetailActivity : AppCompatActivity() {
         _binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        updateCustomActionBarTitle("Giveaway Detail")
+        updateCustomActionBarTitle(getString(R.string.giveaway_detail))
 
         setData()
     }
@@ -92,7 +90,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
 
-    fun updateCustomActionBarTitle(title: String) {
+    private fun updateCustomActionBarTitle(title: String) {
         supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
         supportActionBar?.setCustomView(R.layout.customactionbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

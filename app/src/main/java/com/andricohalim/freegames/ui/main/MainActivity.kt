@@ -1,7 +1,5 @@
 package com.andricohalim.freegames.ui.main
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -10,13 +8,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.andricohalim.freegames.R
 import com.andricohalim.freegames.adapter.GamesAdapter
 import com.andricohalim.freegames.databinding.ActivityMainBinding
 import com.andricohalim.freegames.response.GamesResponse
-import com.andricohalim.freegames.util.ViewModelFactory
 import com.andricohalim.freegames.util.Result
+import com.andricohalim.freegames.util.ViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        updateCustomActionBarTitle("Free Games Info")
+        updateCustomActionBarTitle(getString(R.string.free_games_info))
 
         val layoutManager = LinearLayoutManager(this)
         binding.rvGames.layoutManager = layoutManager
@@ -90,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun updateCustomActionBarTitle(title: String) {
+    private fun updateCustomActionBarTitle(title: String) {
         supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
         supportActionBar?.setCustomView(R.layout.customactionbar)
 

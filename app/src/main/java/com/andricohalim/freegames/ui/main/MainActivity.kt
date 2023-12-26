@@ -48,8 +48,8 @@ class MainActivity : AppCompatActivity() {
 
                 is Result.Error -> {
                     showLoading(false)
-//                    binding.tvError.text = result.error
-//                    binding.tvError.visibility = View.VISIBLE
+                    binding.tvError.text = result.error
+                    binding.tvError.visibility = View.VISIBLE
                 }
             }
         }

@@ -9,4 +9,5 @@
     <string name="instruction">Instruction</string>
     <string name="giveaway_end">Giveaway End: %1$s</string>
     <string name="thanks_to_gamerpower_for_provide_api">Thanks to gamerpower for provide API</string>
+    <string name="error">Error</string>
 </resources>

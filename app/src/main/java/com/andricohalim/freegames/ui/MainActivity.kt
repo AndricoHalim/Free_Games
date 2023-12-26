@@ -2,8 +2,12 @@ package com.andricohalim.freegames.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.andricohalim.freegames.R
 import com.andricohalim.freegames.adapter.GamesAdapter
 import com.andricohalim.freegames.databinding.ActivityMainBinding
 import com.andricohalim.freegames.response.GamesResponse
@@ -22,23 +26,24 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        updateCustomActionBarTitle("Free Games Info")
 
         val layoutManager = LinearLayoutManager(this)
-        binding.rvTips.layoutManager = layoutManager
+        binding.rvGames.layoutManager = layoutManager
 
         mainViewModel.listGames.observe(this) { result ->
             when (result) {
                 is Result.Loading -> {
-//                    showLoading(true)
+                    showLoading(true)
                 }
 
                 is Result.Success -> {
-//                    showLoading(false)
+                    showLoading(false)
                     setupAction(result.data)
                 }
 
                 is Result.Error -> {
-//                    showLoading(false)
+                    showLoading(false)
 //                    binding.tvError.text = result.error
 //                    binding.tvError.visibility = View.VISIBLE
                 }
@@ -46,10 +51,30 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupAction(storyList: List<GamesResponse>) {
+    private fun setupAction(gameList: List<GamesResponse>) {
         binding.apply {
-            val adapter = GamesAdapter(storyList)
-            binding.rvTips.adapter = adapter
+            val adapter = GamesAdapter(gameList)
+            binding.rvGames.adapter = adapter
         }
     }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.apply {
+            if (isLoading) {
+                progressBar.visibility = View.VISIBLE
+            } else {
+                progressBar.visibility = View.GONE
+            }
+        }
+    }
+
+    fun updateCustomActionBarTitle(title: String) {
+        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+        supportActionBar?.setCustomView(R.layout.customactionbar)
+
+        val customActionBarView = supportActionBar?.customView
+        val titleTextView = customActionBarView?.findViewById<TextView>(R.id.tvTitle)
+        titleTextView?.text = title
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.andricohalim.freegames.ui
+package com.andricohalim.freegames.ui.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -19,7 +19,7 @@ class MainViewModel(private val userRepository: GamesRepository) : ViewModel() {
         getGamesList()
     }
 
-    fun getGamesList() {
+    private fun getGamesList() {
         viewModelScope.launch {
             val response = userRepository.getGames()
             response.asFlow().collect {

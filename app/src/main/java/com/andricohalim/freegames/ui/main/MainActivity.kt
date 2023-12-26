@@ -1,4 +1,4 @@
-package com.andricohalim.freegames.ui
+package com.andricohalim.freegames.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -5,7 +5,10 @@ import android.content.res.ColorStateList
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.core.content.ContextCompat
 import androidx.core.content.IntentCompat
@@ -50,6 +53,44 @@ class DetailActivity : AppCompatActivity() {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         startActivity(intent)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.share_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.share -> {
+                shareGame()
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun shareGame() {
+        val games = IntentCompat.getParcelableExtra(intent, DETAIL_INFO, GamesResponse::class.java)
+
+        val shareText = getString(
+            R.string.share_game_text,
+            games?.title,
+            games?.openGiveawayUrl,
+            games?.platforms
+        )
+
+        val sendIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_game_subject))
+            putExtra(Intent.EXTRA_TEXT, shareText)
+            type = "text/plain"
+        }
+
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
+    }
+
 
     fun updateCustomActionBarTitle(title: String) {
         supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM

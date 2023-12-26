@@ -10,4 +10,8 @@
     <string name="giveaway_end">Giveaway End: %1$s</string>
     <string name="thanks_to_gamerpower_for_provide_api">Thanks to gamerpower for provide API</string>
     <string name="error">Error</string>
+    <string name="info">Info</string>
+    <string name="share">Share</string>
+    <string name="share_game_text">%1$s\n\nPlatform: %3$s\n\nURL: %2$s</string>
+    <string name="share_game_subject">Check out this awesome game!</string>
 </resources>

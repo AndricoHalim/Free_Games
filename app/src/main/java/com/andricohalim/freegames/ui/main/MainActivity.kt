@@ -1,9 +1,13 @@
 package com.andricohalim.freegames.ui.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -48,6 +52,24 @@ class MainActivity : AppCompatActivity() {
 //                    binding.tvError.visibility = View.VISIBLE
                 }
             }
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.info -> {
+                val toast = Toast.makeText(this,
+                    getString(R.string.thanks_to_gamerpower_for_provide_api), Toast.LENGTH_SHORT)
+                toast.show()
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
         }
     }
 

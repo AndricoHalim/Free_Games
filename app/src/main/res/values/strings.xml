@@ -14,4 +14,6 @@
     <string name="share">Share</string>
     <string name="share_game_text">%1$s\n\nPlatform: %3$s\n\nURL: %2$s</string>
     <string name="share_game_subject">Check out this awesome game!</string>
+    <string name="giveaway_detail">Giveaway Detail</string>
+    <string name="free_games_info">Free Games Info</string>
 </resources>

@@ -13,6 +13,7 @@ import com.andricohalim.freegames.R
 import com.andricohalim.freegames.databinding.ActivityDetailBinding
 import com.andricohalim.freegames.databinding.ActivityMainBinding
 import com.andricohalim.freegames.response.GamesResponse
+import com.andricohalim.freegames.util.formatDate
 import com.andricohalim.freegames.util.loadImage
 
 class DetailActivity : AppCompatActivity() {
@@ -34,7 +35,8 @@ class DetailActivity : AppCompatActivity() {
             loadImage(applicationContext, games!!.image, ivGames)
             tvTitle.text = games.title
             tvPlatform.text = getString(R.string.platformtxt, games.platforms)
-            tvEndDate.text = getString(R.string.giveaway_end, games.endDate)
+            val formatEndDate = formatDate(games.endDate)
+            tvEndDate.text = getString(R.string.giveaway_end, formatEndDate)
             tvDescription.text = games.description
             btnClaim.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this@DetailActivity, R.color.black))
             btnClaim.setOnClickListener {

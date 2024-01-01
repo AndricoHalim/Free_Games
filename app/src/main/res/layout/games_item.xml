@@ -30,7 +30,7 @@
             android:id="@+id/tvYourActivity"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Games Title"
+            android:text="@string/games_title"
             android:textSize="20sp"
             android:textColor="@color/black"
             android:textStyle="bold"

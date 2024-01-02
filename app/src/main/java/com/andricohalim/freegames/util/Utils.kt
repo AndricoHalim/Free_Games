@@ -21,7 +21,7 @@ fun formatDate(endDateStr: String): String {
 
     // Adjust the pattern based on the actual format of games.endDate
     val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
-    val outputFormat = SimpleDateFormat("dd MMMM yyyy HH:mm:ss", Locale("id", "ID"))
+    val outputFormat = SimpleDateFormat("dd MMMM yyyy HH:mm:ss", Locale("US", "US"))
 
     return try {
         val endDate: Date = inputFormat.parse(endDateStr) ?: Date()
